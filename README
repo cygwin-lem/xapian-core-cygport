@@ -1,0 +1,160 @@
+xapian-core
+------------------------------------------
+Xapian is a highly adaptable toolkit which allows developers to easily 
+add advanced indexing and search facilities to their own applications. 
+It supports the Probabilistic Information Retrieval model and also 
+supports a rich set of boolean query operators.
+
+Runtime requirements:
+  cygwin-1.5.24-2
+  zlib-1.2.3-2
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.24-2
+  autoconf2.5-2.61-1
+  automake1.9-1.9.6-2
+  binutils-20060817-1
+  bison-2.3-1
+  cygport-0.3.7-1
+  flex-2.5.33-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
+  libtool1.5-1.5.23a-2
+  make-3.81-1
+  sed-4.1.5-2
+
+Canonical website:
+  http://www.xapian.org/
+
+Canonical download:
+  http://www.oligarchy.co.uk/xapian/1.0.4/
+
+-------------------------------------------
+
+Build instructions:
+  unpack xapian-core-1.0.4-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./xapian-core-1.0.4-X.cygport all
+
+This will create:
+  /usr/src/libxapian-devel-1.0.4-X.tar.bz2
+  /usr/src/libxapian-doc-1.0.4-X.tar.bz2
+  /usr/src/libxapian15-1.0.4-X.tar.bz2
+  /usr/src/xapian-core-1.0.4-X-src.tar.bz2
+  /usr/src/xapian-core-1.0.4-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+(xapian-core)
+  /usr/bin/copydatabase.exe
+  /usr/bin/delve.exe
+  /usr/bin/quartzcheck.exe
+  /usr/bin/quartzcompact.exe
+  /usr/bin/quartzdump.exe
+  /usr/bin/quest.exe
+  /usr/bin/simpleexpand.exe
+  /usr/bin/simpleindex.exe
+  /usr/bin/simplesearch.exe
+  /usr/bin/xapian-check.exe
+  /usr/bin/xapian-compact.exe
+  /usr/bin/xapian-inspect.exe
+  /usr/bin/xapian-progsrv.exe
+  /usr/bin/xapian-tcpsrv.exe
+  /usr/share/doc/Cygwin/xapian-core-1.0.4.README
+  /usr/share/doc/xapian-core-1.0.4/AUTHORS
+  /usr/share/doc/xapian-core-1.0.4/COPYING
+  /usr/share/doc/xapian-core-1.0.4/ChangeLog
+  /usr/share/doc/xapian-core-1.0.4/HACKING
+  /usr/share/doc/xapian-core-1.0.4/INSTALL
+  /usr/share/doc/xapian-core-1.0.4/NEWS
+  /usr/share/doc/xapian-core-1.0.4/README
+  /usr/share/doc/xapian-core-1.0.4/admin_notes.html
+  /usr/share/doc/xapian-core-1.0.4/bm25.html
+  /usr/share/doc/xapian-core-1.0.4/code_structure.html
+  /usr/share/doc/xapian-core-1.0.4/deprecation.html
+  /usr/share/doc/xapian-core-1.0.4/glossary.html
+  /usr/share/doc/xapian-core-1.0.4/index.html
+  /usr/share/doc/xapian-core-1.0.4/install.html
+  /usr/share/doc/xapian-core-1.0.4/internals.html
+  /usr/share/doc/xapian-core-1.0.4/intro_ir.html
+  /usr/share/doc/xapian-core-1.0.4/matcherdesign.html
+  /usr/share/doc/xapian-core-1.0.4/overview.html
+  /usr/share/doc/xapian-core-1.0.4/quartzdesign.html
+  /usr/share/doc/xapian-core-1.0.4/queryparser.html
+  /usr/share/doc/xapian-core-1.0.4/quickstart.html
+  /usr/share/doc/xapian-core-1.0.4/quickstartexpand.cc.html
+  /usr/share/doc/xapian-core-1.0.4/quickstartindex.cc.html
+  /usr/share/doc/xapian-core-1.0.4/quickstartsearch.cc.html
+  /usr/share/doc/xapian-core-1.0.4/remote.html
+  /usr/share/doc/xapian-core-1.0.4/remote_protocol.html
+  /usr/share/doc/xapian-core-1.0.4/scalability.html
+  /usr/share/doc/xapian-core-1.0.4/spelling.html
+  /usr/share/doc/xapian-core-1.0.4/stemming.html
+  /usr/share/doc/xapian-core-1.0.4/synonyms.html
+  /usr/share/doc/xapian-core-1.0.4/termgenerator.html
+  /usr/share/doc/xapian-core-1.0.4/tests.html
+  /usr/share/doc/xapian-core-1.0.4/valueranges.html
+  /usr/share/man/man1/copydatabase.1.gz
+  /usr/share/man/man1/delve.1.gz
+  /usr/share/man/man1/quartzcheck.1.gz
+  /usr/share/man/man1/quartzcompact.1.gz
+  /usr/share/man/man1/quartzdump.1.gz
+  /usr/share/man/man1/quest.1.gz
+  /usr/share/man/man1/xapian-check.1.gz
+  /usr/share/man/man1/xapian-compact.1.gz
+  /usr/share/man/man1/xapian-config.1.gz
+  /usr/share/man/man1/xapian-inspect.1.gz
+  /usr/share/man/man1/xapian-progsrv.1.gz
+  /usr/share/man/man1/xapian-tcpsrv.1.gz
+
+(libxapian15)
+  /usr/bin/cygxapian-15.dll
+
+(libxapian-devel)
+  /usr/bin/xapian-config
+  /usr/include/xapian.h
+  /usr/include/xapian/base.h
+  /usr/include/xapian/database.h
+  /usr/include/xapian/dbfactory.h
+  /usr/include/xapian/deprecated.h
+  /usr/include/xapian/document.h
+  /usr/include/xapian/enquire.h
+  /usr/include/xapian/error.h
+  /usr/include/xapian/errorhandler.h
+  /usr/include/xapian/expanddecider.h
+  /usr/include/xapian/positioniterator.h
+  /usr/include/xapian/postingiterator.h
+  /usr/include/xapian/query.h
+  /usr/include/xapian/queryparser.h
+  /usr/include/xapian/stem.h
+  /usr/include/xapian/termgenerator.h
+  /usr/include/xapian/termiterator.h
+  /usr/include/xapian/types.h
+  /usr/include/xapian/unicode.h
+  /usr/include/xapian/valueiterator.h
+  /usr/include/xapian/version.h
+  /usr/include/xapian/visibility.h
+  /usr/lib/libxapian.a
+  /usr/lib/libxapian.dll.a
+  /usr/lib/libxapian.la
+  /usr/share/aclocal/xapian.m4
+
+(libxapian-doc)
+  /usr/share/doc/xapian-core-1.0.4/apidoc.pdf
+  /usr/share/doc/xapian-core-1.0.4/apidoc/html/*
+
+------------------
+
+Port Notes:
+
+----- version 1.0.4-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
