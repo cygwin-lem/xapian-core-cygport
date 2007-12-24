@@ -26,23 +26,23 @@ Canonical website:
   http://www.xapian.org/
 
 Canonical download:
-  http://www.oligarchy.co.uk/xapian/1.0.4/
+  http://www.oligarchy.co.uk/xapian/1.0.5/
 
 -------------------------------------------
 
 Build instructions:
-  unpack xapian-core-1.0.4-X-src.tar.bz2
+  unpack xapian-core-1.0.5-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./xapian-core-1.0.4-X.cygport all
+  cygport ./xapian-core-1.0.5-X.cygport all
 
 This will create:
-  /usr/src/libxapian-devel-1.0.4-X.tar.bz2
-  /usr/src/libxapian-doc-1.0.4-X.tar.bz2
-  /usr/src/libxapian15-1.0.4-X.tar.bz2
-  /usr/src/xapian-core-1.0.4-X-src.tar.bz2
-  /usr/src/xapian-core-1.0.4-X.tar.bz2
+  /usr/src/libxapian-devel-1.0.5-X.tar.bz2
+  /usr/src/libxapian-doc-1.0.5-X.tar.bz2
+  /usr/src/libxapian15-1.0.5-X.tar.bz2
+  /usr/src/xapian-core-1.0.5-X-src.tar.bz2
+  /usr/src/xapian-core-1.0.5-X.tar.bz2
 
 -------------------------------------------
 
@@ -63,40 +63,40 @@ Files included in the binary packages:
   /usr/bin/xapian-inspect.exe
   /usr/bin/xapian-progsrv.exe
   /usr/bin/xapian-tcpsrv.exe
-  /usr/share/doc/Cygwin/xapian-core-1.0.4.README
-  /usr/share/doc/xapian-core-1.0.4/AUTHORS
-  /usr/share/doc/xapian-core-1.0.4/COPYING
-  /usr/share/doc/xapian-core-1.0.4/ChangeLog
-  /usr/share/doc/xapian-core-1.0.4/HACKING
-  /usr/share/doc/xapian-core-1.0.4/INSTALL
-  /usr/share/doc/xapian-core-1.0.4/NEWS
-  /usr/share/doc/xapian-core-1.0.4/README
-  /usr/share/doc/xapian-core-1.0.4/admin_notes.html
-  /usr/share/doc/xapian-core-1.0.4/bm25.html
-  /usr/share/doc/xapian-core-1.0.4/code_structure.html
-  /usr/share/doc/xapian-core-1.0.4/deprecation.html
-  /usr/share/doc/xapian-core-1.0.4/glossary.html
-  /usr/share/doc/xapian-core-1.0.4/index.html
-  /usr/share/doc/xapian-core-1.0.4/install.html
-  /usr/share/doc/xapian-core-1.0.4/internals.html
-  /usr/share/doc/xapian-core-1.0.4/intro_ir.html
-  /usr/share/doc/xapian-core-1.0.4/matcherdesign.html
-  /usr/share/doc/xapian-core-1.0.4/overview.html
-  /usr/share/doc/xapian-core-1.0.4/quartzdesign.html
-  /usr/share/doc/xapian-core-1.0.4/queryparser.html
-  /usr/share/doc/xapian-core-1.0.4/quickstart.html
-  /usr/share/doc/xapian-core-1.0.4/quickstartexpand.cc.html
-  /usr/share/doc/xapian-core-1.0.4/quickstartindex.cc.html
-  /usr/share/doc/xapian-core-1.0.4/quickstartsearch.cc.html
-  /usr/share/doc/xapian-core-1.0.4/remote.html
-  /usr/share/doc/xapian-core-1.0.4/remote_protocol.html
-  /usr/share/doc/xapian-core-1.0.4/scalability.html
-  /usr/share/doc/xapian-core-1.0.4/spelling.html
-  /usr/share/doc/xapian-core-1.0.4/stemming.html
-  /usr/share/doc/xapian-core-1.0.4/synonyms.html
-  /usr/share/doc/xapian-core-1.0.4/termgenerator.html
-  /usr/share/doc/xapian-core-1.0.4/tests.html
-  /usr/share/doc/xapian-core-1.0.4/valueranges.html
+  /usr/share/doc/Cygwin/xapian-core-1.0.5.README
+  /usr/share/doc/xapian-core-1.0.5/AUTHORS
+  /usr/share/doc/xapian-core-1.0.5/COPYING
+  /usr/share/doc/xapian-core-1.0.5/ChangeLog
+  /usr/share/doc/xapian-core-1.0.5/HACKING
+  /usr/share/doc/xapian-core-1.0.5/INSTALL
+  /usr/share/doc/xapian-core-1.0.5/NEWS
+  /usr/share/doc/xapian-core-1.0.5/README
+  /usr/share/doc/xapian-core-1.0.5/admin_notes.html
+  /usr/share/doc/xapian-core-1.0.5/bm25.html
+  /usr/share/doc/xapian-core-1.0.5/code_structure.html
+  /usr/share/doc/xapian-core-1.0.5/deprecation.html
+  /usr/share/doc/xapian-core-1.0.5/glossary.html
+  /usr/share/doc/xapian-core-1.0.5/index.html
+  /usr/share/doc/xapian-core-1.0.5/install.html
+  /usr/share/doc/xapian-core-1.0.5/internals.html
+  /usr/share/doc/xapian-core-1.0.5/intro_ir.html
+  /usr/share/doc/xapian-core-1.0.5/matcherdesign.html
+  /usr/share/doc/xapian-core-1.0.5/overview.html
+  /usr/share/doc/xapian-core-1.0.5/quartzdesign.html
+  /usr/share/doc/xapian-core-1.0.5/queryparser.html
+  /usr/share/doc/xapian-core-1.0.5/quickstart.html
+  /usr/share/doc/xapian-core-1.0.5/quickstartexpand.cc.html
+  /usr/share/doc/xapian-core-1.0.5/quickstartindex.cc.html
+  /usr/share/doc/xapian-core-1.0.5/quickstartsearch.cc.html
+  /usr/share/doc/xapian-core-1.0.5/remote.html
+  /usr/share/doc/xapian-core-1.0.5/remote_protocol.html
+  /usr/share/doc/xapian-core-1.0.5/scalability.html
+  /usr/share/doc/xapian-core-1.0.5/spelling.html
+  /usr/share/doc/xapian-core-1.0.5/stemming.html
+  /usr/share/doc/xapian-core-1.0.5/synonyms.html
+  /usr/share/doc/xapian-core-1.0.5/termgenerator.html
+  /usr/share/doc/xapian-core-1.0.5/tests.html
+  /usr/share/doc/xapian-core-1.0.5/valueranges.html
   /usr/share/man/man1/copydatabase.1.gz
   /usr/share/man/man1/delve.1.gz
   /usr/share/man/man1/quartzcheck.1.gz
@@ -143,12 +143,15 @@ Files included in the binary packages:
   /usr/share/aclocal/xapian.m4
 
 (libxapian-doc)
-  /usr/share/doc/xapian-core-1.0.4/apidoc.pdf
-  /usr/share/doc/xapian-core-1.0.4/apidoc/html/*
+  /usr/share/doc/xapian-core-1.0.5/apidoc.pdf
+  /usr/share/doc/xapian-core-1.0.5/apidoc/html/*
 
 ------------------
 
 Port Notes:
+
+----- version 1.0.5-1 -----
+Version bump.
 
 ----- version 1.0.4-1 -----
 Initial release for Cygwin.
