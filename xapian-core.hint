@@ -1,5 +1,5 @@
 category: Libs
-requires: cygwin libxapian15
+requires: libxapian15
 sdesc: "Xapian search engine toolkit (utilities)"
 ldesc: "Xapian is a highly adaptable toolkit which allows developers to 
 easily add advanced indexing and search facilities to their own 

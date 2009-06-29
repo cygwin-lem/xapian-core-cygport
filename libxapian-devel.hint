@@ -1,5 +1,5 @@
 category: Libs
-requires: cygwin zlib libxapian15
+requires: zlib libxapian15
 external-source: xapian-core
 sdesc: "Xapian search engine toolkit (development)"
 ldesc: "Xapian is a highly adaptable toolkit which allows developers to 
