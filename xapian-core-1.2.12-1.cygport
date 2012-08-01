@@ -1,0 +1,25 @@
+CATEGORY="Libs"
+SUMMARY="Xapian search engine toolkit"
+DESCRIPTION="Xapian is a highly adaptable toolkit which allows developers to
+easily add advanced indexing and search facilities to their own
+applications. It supports the Probabilistic Information Retrieval model
+and also supports a rich set of boolean query operators."
+HOMEPAGE="http://www.xapian.org/"
+SRC_URI="http://www.oligarchy.co.uk/xapian/${PV}/${P}.tar.gz"
+PATCH_URI="1.2.12-cygwin.patch"
+
+PKG_NAMES="${PN} libxapian22 libxapian-devel libxapian-doc"
+xapian_core_CATEGORY="Utils"
+xapian_core_CONTENTS="--exclude=apidoc* --exclude=*.dll --exclude=*-config*
+                      usr/bin/ usr/share/doc/ usr/share/man/"
+libxapian22_SUMMARY="${SUMMARY} (runtime)"
+libxapian22_CONTENTS="usr/bin/*-22.dll"
+libxapian_devel_SUMMARY="${SUMMARY} (development)"
+libxapian_devel_CONTENTS="usr/bin/*-config usr/include/ usr/lib/
+                          usr/share/aclocal/ usr/share/man/man1/xapian-config.*"
+libxapian_doc_SUMMARY="${SUMMARY} (API documentation)"
+libxapian_doc_CONTENTS="usr/share/doc/${PN}/apidoc*"
+
+CYGCONF_ARGS="--disable-visibility"
+
+KEEP_LA_FILES="none"

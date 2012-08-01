@@ -1,0 +1,194 @@
+--- origsrc/xapian-core-1.2.12/backends/flint_lock.cc	2012-06-27 08:07:52.000000000 -0500
++++ src/xapian-core-1.2.12/backends/flint_lock.cc	2012-07-31 22:14:51.832019500 -0500
+@@ -52,7 +52,7 @@ FlintLock::lock(bool exclusive, string &
+     // Currently we only support exclusive locks.
+     (void)exclusive;
+     Assert(exclusive);
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+     Assert(hFile == INVALID_HANDLE_VALUE);
+ #ifdef __CYGWIN__
+     char fnm[MAX_PATH];
+@@ -250,7 +250,7 @@ FlintLock::lock(bool exclusive, string &
+ 
+ void
+ FlintLock::release() {
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+     if (hFile == INVALID_HANDLE_VALUE) return;
+     CloseHandle(hFile);
+     hFile = INVALID_HANDLE_VALUE;
+--- origsrc/xapian-core-1.2.12/backends/flint_lock.h	2012-06-27 08:07:52.000000000 -0500
++++ src/xapian-core-1.2.12/backends/flint_lock.h	2012-07-31 22:15:09.822048500 -0500
+@@ -24,7 +24,7 @@
+ 
+ #include <string>
+ 
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+ # include "safewindows.h"
+ #elif defined __EMX__
+ # define INCL_DOS
+@@ -38,7 +38,7 @@
+ 
+ class FlintLock {
+     std::string filename;
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+     HANDLE hFile;
+ #elif defined __EMX__
+     HFILE hFile;
+@@ -55,7 +55,7 @@ class FlintLock {
+ 	FDLIMIT, // Process hit its file descriptor limit.
+ 	UNKNOWN // The attempt failed for some unspecified reason.
+     } reason;
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+     FlintLock(const std::string &filename_)
+ 	: filename(filename_), hFile(INVALID_HANDLE_VALUE) {
+ 	// Keep the same lockfile name as flint since the locking is
+--- origsrc/xapian-core-1.2.12/common/safeuuid.h	2012-06-27 08:07:24.000000000 -0500
++++ src/xapian-core-1.2.12/common/safeuuid.h	2012-07-31 22:24:47.150069800 -0500
+@@ -22,7 +22,7 @@
+ #ifndef XAPIAN_INCLUDED_SAFEUUID_H
+ #define XAPIAN_INCLUDED_SAFEUUID_H
+ 
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+ # include "common/win32_uuid.h"
+ #elif defined HAVE_UUID_UUID_H
+ # include <uuid/uuid.h>
+--- origsrc/xapian-core-1.2.12/common/safewindows.h	2012-06-27 08:07:24.000000000 -0500
++++ src/xapian-core-1.2.12/common/safewindows.h	2012-07-31 22:25:10.174386700 -0500
+@@ -21,7 +21,7 @@
+ #ifndef XAPIAN_INCLUDED_SAFEWINDOWS_H
+ #define XAPIAN_INCLUDED_SAFEWINDOWS_H
+ 
+-#if !defined __CYGWIN__ && !defined __WIN32__
++#if !defined __WIN32__
+ # error Including safewindows.h, but neither __CYGWIN__ nor __WIN32__ defined!
+ #endif
+ 
+--- origsrc/xapian-core-1.2.12/common/tcpserver.h	2012-06-27 08:07:24.000000000 -0500
++++ src/xapian-core-1.2.12/common/tcpserver.h	2012-07-31 22:26:43.943750000 -0500
+@@ -28,7 +28,7 @@
+ # define SOCKET_INITIALIZER_MIXIN
+ #endif
+ 
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+ # include "safewindows.h" // Only for HANDLE!
+ #endif
+ 
+@@ -47,7 +47,7 @@ class XAPIAN_VISIBILITY_DEFAULT TcpServe
+     /// Don't allow copying.
+     TcpServer(const TcpServer &);
+ 
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+     /// Mutex to stop two TcpServers running on the same port.
+     HANDLE mutex;
+ #endif
+@@ -64,7 +64,7 @@ class XAPIAN_VISIBILITY_DEFAULT TcpServe
+      */
+     static int get_listening_socket(const std::string & host, int port,
+ 				    bool tcp_nodelay
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+ 				    , HANDLE &mutex
+ #endif
+ 	    );
+--- origsrc/xapian-core-1.2.12/common/win32_uuid.h	2012-06-27 08:07:24.000000000 -0500
++++ src/xapian-core-1.2.12/common/win32_uuid.h	2012-07-31 22:26:53.414291700 -0500
+@@ -21,7 +21,7 @@
+ #ifndef XAPIAN_INCLUDED_WIN32_UUID_H
+ #define XAPIAN_INCLUDED_WIN32_UUID_H
+ 
+-#if !defined __CYGWIN__ && !defined __WIN32__
++#if !defined __WIN32__
+ # error Including win32_uuid.h, but neither __CYGWIN__ nor __WIN32__ defined!
+ #endif
+ 
+--- origsrc/xapian-core-1.2.12/configure.ac	2012-06-27 08:07:59.000000000 -0500
++++ src/xapian-core-1.2.12/configure.ac	2012-07-31 22:06:30.231329600 -0500
+@@ -212,8 +212,6 @@ if test -z "$CC_FOR_BUILD" ; then
+   else
+     CC_FOR_BUILD="$CC"
+   fi
+-  dnl Unset CC to make sure we don't accidentally use it.
+-  unset CC
+ fi
+ AC_ARG_VAR(CC_FOR_BUILD, [C compiler command for native compilation (needed to compile build tools during cross-builds)])
+ 
+@@ -724,7 +722,7 @@ case $enable_backend_flint$enable_backen
+   dnl Find the UUID library (from e2fsprogs/util-linux-ng, not the OSSP one).
+ 
+   case $host_os in
+-    *mingw* | *cygwin*) dnl Use built-in API.
++    *mingw*) dnl Use built-in API.
+       use_win32_uuid_api=1
+       ;;
+     *)
+--- origsrc/xapian-core-1.2.12/net/tcpserver.cc	2012-06-27 08:07:20.000000000 -0500
++++ src/xapian-core-1.2.12/net/tcpserver.cc	2012-07-31 22:27:29.912379200 -0500
+@@ -72,11 +72,11 @@ using namespace std;
+ TcpServer::TcpServer(const std::string & host, int port, bool tcp_nodelay,
+ 		     bool verbose_)
+     :
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+       mutex(NULL),
+ #endif
+       listen_socket(get_listening_socket(host, port, tcp_nodelay
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+ 					 , mutex
+ #endif
+ 					 )),
+@@ -87,7 +87,7 @@ TcpServer::TcpServer(const std::string &
+ int
+ TcpServer::get_listening_socket(const std::string & host, int port,
+ 				bool tcp_nodelay
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+ 				, HANDLE &mutex
+ #endif
+ 				)
+@@ -111,7 +111,7 @@ TcpServer::get_listening_socket(const st
+ 
+     {
+ 	int optval = 1;
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+ 	// Windows has screwy semantics for SO_REUSEADDR - it allows the user
+ 	// to bind to a port which is already bound and listening!  That's
+ 	// just not suitable as we don't want multiple processes listening on
+@@ -264,7 +264,7 @@ TcpServer::accept_connection()
+ TcpServer::~TcpServer()
+ {
+     CLOSESOCKET(listen_socket);
+-#if defined __CYGWIN__ || defined __WIN32__
++#if defined __WIN32__
+     if (mutex) CloseHandle(mutex);
+ #endif
+ }
+--- origsrc/xapian-core-1.2.12/tests/api_backend.cc	2012-06-27 08:07:17.000000000 -0500
++++ src/xapian-core-1.2.12/tests/api_backend.cc	2012-07-31 22:27:47.610391500 -0500
+@@ -40,7 +40,7 @@ using namespace std;
+ 
+ /// Regression test - lockfile should honour umask, was only user-readable.
+ DEFINE_TESTCASE(lockfileumask1, brass || chert || flint) {
+-#if !defined __WIN32__ && !defined __CYGWIN__ && !defined __EMX__
++#if !defined __WIN32__ && !defined __EMX__
+     mode_t old_umask = umask(022);
+     try {
+ 	Xapian::WritableDatabase db = get_named_writable_database("lockfileumask1");
+@@ -160,7 +160,7 @@ DEFINE_TESTCASE(valuesaftercommit1, writ
+ }
+ 
+ DEFINE_TESTCASE(lockfilefd0or1, brass || chert || flint) {
+-#if !defined __WIN32__ && !defined __CYGWIN__ && !defined __EMX__
++#if !defined __WIN32__ && !defined __EMX__
+     int old_stdin = dup(0);
+     int old_stdout = dup(1);
+     try {
