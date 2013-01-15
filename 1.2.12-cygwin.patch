@@ -192,3 +192,14 @@
      int old_stdin = dup(0);
      int old_stdout = dup(1);
      try {
+--- origsrc/xapian-core-1.2.13/xapian-config.in	2013-01-09 06:08:44.000000000 -0600
++++ src/xapian-core-1.2.13/xapian-config.in	2013-01-14 19:20:27.969391000 -0600
+@@ -80,7 +80,7 @@ need_explicit_dependencies()
+     # Vanilla libtool set this to either "yes" or "unknown" and then handles
+     # both of these the same way, but our configure forces this to "no" on
+     # platforms where we know that is appropriate.
+-    [ no != "@link_all_deplibs_CXX@" ] || return 1 # "false"
++    [ no != "no" ] || return 1 # "false"
+ 
+     return 0 # "true"
+ }
