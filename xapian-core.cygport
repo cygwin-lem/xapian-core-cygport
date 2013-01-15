@@ -1,3 +1,6 @@
+NAME="xapian-core"
+VERSION=1.2.13
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Xapian search engine toolkit"
 DESCRIPTION="Xapian is a highly adaptable toolkit which allows developers to
