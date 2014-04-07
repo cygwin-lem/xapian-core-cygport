@@ -111,15 +111,6 @@
  
 --- origsrc/xapian-core-1.2.12/configure.ac	2012-06-27 08:07:59.000000000 -0500
 +++ src/xapian-core-1.2.12/configure.ac	2012-07-31 22:06:30.231329600 -0500
-@@ -212,8 +212,6 @@ if test -z "$CC_FOR_BUILD" ; then
-   else
-     CC_FOR_BUILD="$CC"
-   fi
--  dnl Unset CC to make sure we don't accidentally use it.
--  unset CC
- fi
- AC_ARG_VAR(CC_FOR_BUILD, [C compiler command for native compilation (needed to compile build tools during cross-builds)])
- 
 @@ -724,7 +722,7 @@ case $enable_backend_flint$enable_backen
    dnl Find the UUID library (from e2fsprogs/util-linux-ng, not the OSSP one).
  
