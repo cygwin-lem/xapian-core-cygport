@@ -1,5 +1,5 @@
 NAME="xapian-core"
-VERSION=1.2.17
+VERSION=1.2.18
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Xapian search engine toolkit"
