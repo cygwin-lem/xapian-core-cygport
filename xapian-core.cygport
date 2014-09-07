@@ -1,6 +1,6 @@
 NAME="xapian-core"
 VERSION=1.2.18
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="Xapian search engine toolkit"
 DESCRIPTION="Xapian is a highly adaptable toolkit which allows developers to
