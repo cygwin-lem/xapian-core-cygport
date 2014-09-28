@@ -110,7 +110,7 @@
  #endif
  
 --- origsrc/xapian-core-1.2.12/configure.ac	2012-06-27 08:07:59.000000000 -0500
-+++ src/xapian-core-1.2.12/configure.ac	2012-07-31 22:06:30.231329600 -0500
++++ src/xapian-core-1.2.18/configure.ac	2014-09-07 07:33:15.852393500 -0500
 @@ -724,7 +722,7 @@ case $enable_backend_flint$enable_backen
    dnl Find the UUID library (from e2fsprogs/util-linux-ng, not the OSSP one).
  
@@ -120,6 +120,14 @@
        use_win32_uuid_api=1
        ;;
      *)
+@@ -1309,6 +1309,7 @@ AC_SUBST(link_all_deplibs_CXX)
+ dnl Shared library extension.
+ module=no
+ eval "SHLIBEXT=$shrext_cmds"
++case $host_os in cygwin*|mingw*) SHLIBEXT=.dll.a ;; esac
+ AC_SUBST(SHLIBEXT)
+ 
+ dnl Split up the version number into "MAJOR.MINOR.REVISION".
 --- origsrc/xapian-core-1.2.12/net/tcpserver.cc	2012-06-27 08:07:20.000000000 -0500
 +++ src/xapian-core-1.2.12/net/tcpserver.cc	2012-07-31 22:27:29.912379200 -0500
 @@ -72,11 +72,11 @@ using namespace std;
