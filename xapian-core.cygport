@@ -1,6 +1,6 @@
 NAME="xapian-core"
-VERSION=1.2.18
-RELEASE=2
+VERSION=1.2.24
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Xapian search engine toolkit"
 DESCRIPTION="Xapian is a highly adaptable toolkit which allows developers to
@@ -24,5 +24,3 @@ libxapian_doc_SUMMARY="${SUMMARY} (API documentation)"
 libxapian_doc_CONTENTS="usr/share/doc/${NAME}/apidoc*"
 
 CYGCONF_ARGS="--disable-visibility"
-
-KEEP_LA_FILES="none"

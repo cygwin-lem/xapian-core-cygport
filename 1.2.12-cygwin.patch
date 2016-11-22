@@ -125,7 +125,7 @@
  module=no
  eval "SHLIBEXT=$shrext_cmds"
 +case $host_os in cygwin*|mingw*) SHLIBEXT=.dll.a ;; esac
- AC_SUBST(SHLIBEXT)
+ AC_SUBST([SHLIBEXT])
  
  dnl Split up the version number into "MAJOR.MINOR.REVISION".
 --- origsrc/xapian-core-1.2.12/net/tcpserver.cc	2012-06-27 08:07:20.000000000 -0500
