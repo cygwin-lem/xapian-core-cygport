@@ -1,5 +1,5 @@
 NAME="xapian-core"
-VERSION=1.2.24
+VERSION=1.4.5
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Xapian search engine toolkit"
@@ -9,18 +9,33 @@ applications. It supports the Probabilistic Information Retrieval model
 and also supports a rich set of boolean query operators."
 HOMEPAGE="http://www.xapian.org/"
 SRC_URI="http://www.oligarchy.co.uk/xapian/${VERSION}/${NAME}-${VERSION}.tar.xz"
-PATCH_URI="1.2.12-cygwin.patch"
+PATCH_URI="1.4.5-cygwin.patch"
 
-PKG_NAMES="${NAME} libxapian22 libxapian-devel libxapian-doc"
+PKG_NAMES="${NAME} libxapian30 libxapian-devel libxapian-doc"
 xapian_core_CATEGORY="Utils"
-xapian_core_CONTENTS="--exclude=apidoc* --exclude=*.dll --exclude=*-config*
-                      usr/bin/ usr/share/doc/ usr/share/man/"
-libxapian22_SUMMARY="${SUMMARY} (runtime)"
-libxapian22_CONTENTS="usr/bin/*-22.dll"
+xapian_core_CONTENTS="
+	--exclude=apidoc* --exclude=*.html --exclude=*-config*
+	usr/bin/*.exe
+	usr/share/doc/
+	usr/share/man/
+	usr/share/${NAME}/
+"
+libxapian30_SUMMARY="${SUMMARY} (runtime)"
+libxapian30_CONTENTS="usr/bin/cygxapian-30.dll"
 libxapian_devel_SUMMARY="${SUMMARY} (development)"
-libxapian_devel_CONTENTS="usr/bin/*-config usr/include/ usr/lib/
-                          usr/share/aclocal/ usr/share/man/man1/xapian-config.*"
+libxapian_devel_CONTENTS="
+	usr/bin/xapian-config
+	usr/include/xapian*
+	usr/lib/cmake/xapian/
+	usr/lib/libxapian.dll.a
+	usr/lib/pkgconfig/xapian-core.pc
+	usr/share/aclocal/xapian.m4
+	usr/share/man/man1/xapian-config.1*
+"
 libxapian_doc_SUMMARY="${SUMMARY} (API documentation)"
-libxapian_doc_CONTENTS="usr/share/doc/${NAME}/apidoc*"
+libxapian_doc_CONTENTS="
+	usr/share/doc/${NAME}/apidoc*
+	usr/share/doc/${NAME}/*.html
+"
 
 CYGCONF_ARGS="--disable-visibility"
