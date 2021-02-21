@@ -1,0 +1,11 @@
+--- origsrc/xapian-core-1.4.5/common/safewindows.h	2017-10-15 21:32:24.000000000 -0500
++++ src/xapian-core-1.4.5/common/safewindows.h	2017-11-26 13:16:30.789073600 -0600
+@@ -22,7 +22,7 @@
+ #ifndef XAPIAN_INCLUDED_SAFEWINDOWS_H
+ #define XAPIAN_INCLUDED_SAFEWINDOWS_H
+ 
+-#if !defined __CYGWIN__ && !defined __WIN32__
++#if !defined __WIN32__
+ # error Including safewindows.h, but neither __CYGWIN__ nor __WIN32__ defined!
+ #endif
+ 
