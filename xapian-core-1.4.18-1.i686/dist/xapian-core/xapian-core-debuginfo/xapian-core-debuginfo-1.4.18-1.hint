@@ -1,0 +1,7 @@
+category: Debug
+requires: cygwin-debuginfo
+external-source: xapian-core
+sdesc: "Debug info for xapian-core"
+ldesc: "This package contains files necessary for debugging the
+xapian-core package with gdb."
+test:
