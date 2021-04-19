@@ -1,0 +1,20 @@
+diff -u -r origsrc/xapian-core-1.4.18/configure.ac src/xapian-core-1.4.18/configure.ac
+--- origsrc/xapian-core-1.4.18/configure.ac	2021-01-14 09:44:16.000000000 +0900
++++ src/xapian-core-1.4.18/configure.ac
+@@ -855,7 +855,7 @@
+   dnl Find the UUID library (from e2fsprogs/util-linux-ng, not the OSSP one).
+ 
+   case $host_os-$win32 in
+-    *-yes | *cygwin*) dnl Use built-in win32 API.
++    *-yes) dnl Use built-in win32 API.
+       AC_DEFINE([USE_WIN32_UUID_API], [1],
+ 		[Define to 1 to use UuidCreate(), etc])
+       if test $win32 = yes ; then
+@@ -1506,6 +1506,7 @@
+ dnl Shared library extension.
+ module=no
+ eval "SHLIBEXT=$shrext_cmds"
++case $host_os in cygwin*|mingw*) SHLIBEXT=.dll.a ;; esac
+ AC_SUBST([SHLIBEXT])
+ 
+ dnl We want to be able to use GNU make % pattern rules in maintainer targets

@@ -1,0 +1,38 @@
+--- origsrc/xapian-core-1.4.18/tests/api_backend.cc	2021-01-14 09:44:16.000000000 +0900
++++ src/xapian-core-1.4.18/tests/api_backend.cc
+@@ -55,7 +55,7 @@
+ 
+ /// Regression test - lockfile should honour umask, was only user-readable.
+ DEFINE_TESTCASE(lockfileumask1, chert || glass) {
+-#if !defined __WIN32__ && !defined __CYGWIN__ && !defined __OS2__
++#if !defined __WIN32__ && !defined __OS2__
+     mode_t old_umask = umask(022);
+     try {
+ 	Xapian::WritableDatabase db = get_named_writable_database("lockfileumask1");
+@@ -265,7 +265,7 @@
+ }
+ 
+ DEFINE_TESTCASE(lockfilefd0or1, chert || glass) {
+-#if !defined __WIN32__ && !defined __CYGWIN__ && !defined __OS2__
++#if !defined __WIN32__ && !defined __OS2__
+     int old_stdin = dup(0);
+     int old_stdout = dup(1);
+     try {
+@@ -1167,7 +1167,7 @@
+  *  from the database directory.
+  */
+ DEFINE_TESTCASE(readonlyparentdir1, chert || glass) {
+-#if !defined __WIN32__ && !defined __CYGWIN__ && !defined __OS2__
++#if !defined __WIN32__ && !defined __OS2__
+     string path = get_named_writable_database_path("readonlyparentdir1");
+     // Fix permissions if the previous test was killed.
+     (void)chmod(path.c_str(), 0700);
+@@ -1346,7 +1346,7 @@
+ 
+ // Opening a WritableDatabase with low fds available - it should avoid them.
+ DEFINE_TESTCASE(dbfilefd012, chert || glass) {
+-#if !defined __WIN32__ && !defined __CYGWIN__ && !defined __OS2__
++#if !defined __WIN32__ && !defined __OS2__
+     int oldfds[3];
+     for (int i = 0; i < 3; ++i) {
+ 	oldfds[i] = dup(i);

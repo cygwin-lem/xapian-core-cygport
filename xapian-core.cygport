@@ -1,5 +1,5 @@
 NAME="xapian-core"
-VERSION=1.4.5
+VERSION=1.4.18
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Xapian search engine toolkit"
@@ -7,9 +7,22 @@ DESCRIPTION="Xapian is a highly adaptable toolkit which allows developers to
 easily add advanced indexing and search facilities to their own
 applications. It supports the Probabilistic Information Retrieval model
 and also supports a rich set of boolean query operators."
-HOMEPAGE="http://www.xapian.org/"
-SRC_URI="http://www.oligarchy.co.uk/xapian/${VERSION}/${NAME}-${VERSION}.tar.xz"
-PATCH_URI="1.4.5-cygwin.patch"
+HOMEPAGE="https://www.xapian.org/"
+SRC_URI="https://www.oligarchy.co.uk/xapian/${VERSION}/${NAME}-${VERSION}.tar.xz"
+PATCH_URI="
+  1.4.18-xapian-config.patch
+  1.4.18-flint_lock.patch
+  1.4.18-configure_ac.patch
+  1.4.18-tcpserver.patch
+  1.4.18-tests.patch
+  1.4.18-safewindows_h.patch
+"
+
+BUILD_REQUIRES="
+  pkg-config\
+  libuuid-devel\
+  zlib-devel\
+"
 
 PKG_NAMES="${NAME} libxapian30 libxapian-devel libxapian-doc"
 xapian_core_CATEGORY="Utils"

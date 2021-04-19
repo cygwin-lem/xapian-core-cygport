@@ -1,0 +1,11 @@
+--- origsrc/xapian-core-1.4.5/xapian-config.in	2017-10-15 21:32:24.000000000 -0500
++++ src/xapian-core-1.4.5/xapian-config.in	2017-11-26 13:13:54.938270900 -0600
+@@ -91,7 +91,7 @@ need_explicit_dependencies()
+     # Vanilla libtool set this to either "yes" or "unknown" and then handles
+     # both of these the same way, but our configure forces this to "no" on
+     # platforms where we know that is appropriate.
+-    [ no != "@link_all_deplibs_CXX@" ] || return 1 # "false"
++    [ no != "no" ] || return 1 # "false"
+ 
+     return 0 # "true"
+ }
