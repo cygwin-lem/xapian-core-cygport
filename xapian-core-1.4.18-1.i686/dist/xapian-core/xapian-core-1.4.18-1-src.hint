@@ -1,0 +1,11 @@
+category: Utils
+build-depends: cygport 
+  pkg-config  libuuid-devel  zlib-devel
+sdesc: "Xapian search engine toolkit"
+ldesc: "Xapian is a highly adaptable toolkit which allows developers to
+easily add advanced indexing and search facilities to their own
+applications. It supports the Probabilistic Information Retrieval model
+and also supports a rich set of boolean query operators."
+skip:
+test:
+homepage: https://www.xapian.org/

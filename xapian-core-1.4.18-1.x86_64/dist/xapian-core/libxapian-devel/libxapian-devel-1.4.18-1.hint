@@ -1,0 +1,9 @@
+category: Libs
+requires:  bash libxapian30 pkg-config 
+sdesc: "Xapian search engine toolkit (development)"
+ldesc: "Xapian is a highly adaptable toolkit which allows developers to
+easily add advanced indexing and search facilities to their own
+applications. It supports the Probabilistic Information Retrieval model
+and also supports a rich set of boolean query operators."
+external-source: xapian-core
+test:
